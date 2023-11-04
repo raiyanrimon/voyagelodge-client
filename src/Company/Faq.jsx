@@ -4,6 +4,9 @@ const Faq = () => {
   return (
     <div>
       <PageTitle title="FAQ | VoyageLodge" />
+      <h2 className="text-center font-bold text-3xl my-5">
+        Frequently Asked Questions (FAQ)
+      </h2>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" checked="checked" />
         <div className="collapse-title text-xl font-medium">

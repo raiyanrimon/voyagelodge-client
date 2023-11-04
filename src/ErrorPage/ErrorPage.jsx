@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Layout/Navbar";
-import img404 from "../assets/Add a heading.webp";
+import img404 from "../assets/404.webp";
 import PageTitle from "../Layout/PageTitle";
 
 const ErrorPage = () => {
