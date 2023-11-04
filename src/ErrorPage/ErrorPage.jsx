@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Layout/Navbar";
 import img404 from "../assets/Add a heading.webp";
+import PageTitle from "../Layout/PageTitle";
+
 const ErrorPage = () => {
   return (
     <div className="text-center max-w-7xl mx-auto">
+      <PageTitle title="404 Not FOund" />
       <Navbar></Navbar>
       <img src={img404} alt="" />
       <Link to="/">
