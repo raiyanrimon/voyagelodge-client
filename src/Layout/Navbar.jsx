@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import logo from "../assets/VoyageLodge-logos_transparent.png";
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const links = (
@@ -60,7 +60,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <img className="w-64 h-40 " src={logo} alt="" />
+        <img src={logo} alt="" />
       </div>
       <div className="navbar-center hidden lg:flex ml-16">
         <ul className="menu menu-horizontal px-1">{links}</ul>
