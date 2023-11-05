@@ -1,4 +1,4 @@
-import PageTitle from "../Layout/PageTitle";
+import PageTitle from "../Helmet/PageTitle";
 
 const Faq = () => {
   return (

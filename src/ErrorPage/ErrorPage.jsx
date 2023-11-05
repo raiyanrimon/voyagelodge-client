@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Layout/Navbar";
 import img404 from "../assets/404.webp";
-import PageTitle from "../Layout/PageTitle";
+import PageTitle from "../Helmet/PageTitle";
 
 const ErrorPage = () => {
   return (

@@ -1,4 +1,4 @@
-import PageTitle from "../Layout/PageTitle";
+import PageTitle from "../Helmet/PageTitle";
 import hotel from "../assets/Hotel.webp";
 const AboutUs = () => {
   return (
