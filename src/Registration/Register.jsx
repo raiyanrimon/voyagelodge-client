@@ -42,19 +42,19 @@ const Register = () => {
             displayName: name,
             photoURL: photo,
           });
-          const users = { email };
-          fetch(
-            "https://unique-shop-server-75yzugdl5-golam-raiyans-projects.vercel.app/user",
-            {
-              method: "POST",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(users),
-            }
-          )
-            .then((res) => res.json())
-            .then((data) => console.log(data));
+          //   const users = { email };
+          //   fetch(
+          //     "https://unique-shop-server-75yzugdl5-golam-raiyans-projects.vercel.app/user",
+          //     {
+          //       method: "POST",
+          //       headers: {
+          //         "content-type": "application/json",
+          //       },
+          //       body: JSON.stringify(users),
+          //     }
+          //   )
+          //     .then((res) => res.json())
+          //     .then((data) => console.log(data))
         })
         .catch((error) => console.error(error));
     }
