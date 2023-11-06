@@ -11,6 +11,8 @@ import Login from "./Login/Login";
 import Register from "./Registration/Register";
 import AuthProvider from "./Provider/AuthProvider";
 import { ToastContainer } from "react-toastify";
+import Rooms from "./Rooms/Rooms";
+import RoomDetails from "./Rooms/RoomDetails";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,15 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/rooms",
+        element: <Rooms></Rooms>,
+        loader: () => fetch("http://localhost:5000/rooms"),
+      },
+      {
+        path: "/rooms/:name",
+        element: <RoomDetails></RoomDetails>,
       },
       {
         path: "login",
