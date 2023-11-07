@@ -6,7 +6,10 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import PageTitle from "../Helmet/PageTitle";
+
 import { useEffect, useState } from "react";
+import RoomReviews from "../Reviews/RoomReviews";
+import ReviewForm from "../Reviews/ReviewForm";
 
 const RoomDetails = () => {
   const room = useLoaderData();
@@ -68,6 +71,9 @@ const RoomDetails = () => {
           </Link>
         )}
       </div>
+
+      {isRoomBooked && <ReviewForm roomName={room.name} />}
+      <RoomReviews roomName={room.name} />
     </div>
   );
 };
