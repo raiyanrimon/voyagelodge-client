@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const RoomCard = ({ room }) => {
-  const { img1, price_per_night, name, offer_price } = room;
+  const { img1, price_per_night, name, offer_price, _id } = room;
   return (
-    <Link to={`/rooms/${name}`}>
+    <Link to={`/rooms/${_id}`}>
       <div className="card card-compact bg-base-100 shadow-xl">
         <figure className="h-60">
           <img src={img1} alt={name} />

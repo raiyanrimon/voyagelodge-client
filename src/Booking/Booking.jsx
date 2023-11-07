@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "react-toastify";
+import PageTitle from "../Helmet/PageTitle";
 
 const Booking = () => {
   const room = useLoaderData();
@@ -13,7 +14,7 @@ const Booking = () => {
     const customer = form.customer.value;
     const date = form.date.value;
     const email = form.email.value;
-    const order = {
+    const booking = {
       name,
       email,
       customer,
@@ -25,17 +26,18 @@ const Booking = () => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(order),
+      body: JSON.stringify(booking),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         toast.success("Booking Completed Successfully");
       });
-    console.log(order);
+    console.log(booking);
   };
   return (
     <div>
+      <PageTitle title="Booking | VoyageLodge" />
       <form className="card-body" onSubmit={handleBook}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="form-control">

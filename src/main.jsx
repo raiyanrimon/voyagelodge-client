@@ -14,6 +14,8 @@ import { ToastContainer } from "react-toastify";
 import Rooms from "./Rooms/Rooms";
 import RoomDetails from "./Rooms/RoomDetails";
 import Booking from "./Booking/Booking";
+import MyBookings from "./Booking/MyBookings";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -31,10 +33,10 @@ const router = createBrowserRouter([
         loader: () => fetch("http://localhost:5000/rooms"),
       },
       {
-        path: "/rooms/:name",
+        path: "/rooms/:id",
         element: <RoomDetails></RoomDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/rooms/${params.name}`),
+          fetch(`http://localhost:5000/rooms/${params.id}`),
       },
       {
         path: "login",
@@ -53,10 +55,19 @@ const router = createBrowserRouter([
         element: <AboutUs></AboutUs>,
       },
       {
-        path: "/booking/:name",
+        path: "/booking/:id",
         element: <Booking></Booking>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/rooms/${params.name}`),
+          fetch(`http://localhost:5000/rooms/${params.id}`),
+      },
+      {
+        path: "/bookings",
+        element: (
+          <PrivateRoute>
+            <MyBookings></MyBookings>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/bookings"),
       },
     ],
   },

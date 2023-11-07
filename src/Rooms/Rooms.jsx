@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import RoomCard from "./RoomCard";
 import { useState } from "react";
+import PageTitle from "../Helmet/PageTitle";
 
 const Rooms = () => {
   const rooms = useLoaderData();
@@ -22,6 +23,7 @@ const Rooms = () => {
   };
   return (
     <div className="space-y-5">
+      <PageTitle title="Rooms | VoyageLodge" />
       <form>
         <label className="font-semibold">Filter by Price</label>
         <select

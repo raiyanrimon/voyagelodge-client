@@ -5,11 +5,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import PageTitle from "../Helmet/PageTitle";
 
 const RoomDetails = () => {
   const room = useLoaderData();
   return (
     <div className="space-y-5">
+      <PageTitle title={`${room.name} | VoyageLodge"`} />
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={50}
@@ -44,7 +46,7 @@ const RoomDetails = () => {
         <p className="font-bold text-base text-green-600">
           Offer Price: ${room.offer_price}
         </p>
-        <Link to={`/booking/${room.name}`}>
+        <Link to={`/booking/${room._id}`}>
           <button className="btn btn-accent">Book Now</button>
         </Link>
       </div>
