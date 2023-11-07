@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 
 const UpdateBooking = () => {
   const room = useLoaderData();
-
   const { _id, name, img1, offer_price, date } = room;
   const { user } = useContext(AuthContext);
   const handleUpdate = (e) => {

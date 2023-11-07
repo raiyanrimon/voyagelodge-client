@@ -6,9 +6,21 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import PageTitle from "../Helmet/PageTitle";
+import { useEffect, useState } from "react";
 
 const RoomDetails = () => {
   const room = useLoaderData();
+  const bookingRoom = room.name;
+  const [bookingData, setBookingData] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/bookings")
+      .then((res) => res.json())
+      .then((data) => setBookingData(data));
+  }, []);
+  const isRoomBooked = bookingData.find(
+    (booking) => booking.name === bookingRoom
+  );
+
   return (
     <div className="space-y-5">
       <PageTitle title={`${room.name} | VoyageLodge"`} />
@@ -46,9 +58,15 @@ const RoomDetails = () => {
         <p className="font-bold text-base text-green-600">
           Offer Price: ${room.offer_price}
         </p>
-        <Link to={`/booking/${room._id}`}>
-          <button className="btn btn-accent">Book Now</button>
-        </Link>
+        {isRoomBooked ? (
+          <p className="text-red-600 text-xl font-semibold">
+            Room is already Booked.
+          </p>
+        ) : (
+          <Link to={`/booking/${room._id}`}>
+            <button className="btn btn-accent">Book Now</button>
+          </Link>
+        )}
       </div>
     </div>
   );
