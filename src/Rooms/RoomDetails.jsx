@@ -7,12 +7,14 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import PageTitle from "../Helmet/PageTitle";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import RoomReviews from "../Reviews/RoomReviews";
 import ReviewForm from "../Reviews/ReviewForm";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const RoomDetails = () => {
   const room = useLoaderData();
+  const { user } = useContext(AuthContext);
   const bookingRoom = room.name;
   const [bookingData, setBookingData] = useState([]);
   useEffect(() => {
@@ -21,7 +23,7 @@ const RoomDetails = () => {
       .then((data) => setBookingData(data));
   }, []);
   const isRoomBooked = bookingData.find(
-    (booking) => booking.name === bookingRoom
+    (booking) => booking.name === bookingRoom && booking.email === user?.email
   );
 
   return (
@@ -54,7 +56,7 @@ const RoomDetails = () => {
       <div>
         <p className="text-xl font-medium">{room.description}</p>
       </div>
-      <div className="card">
+      <div className="card text-center space-y-1">
         <p className="font-bold line-through text-red-700 ">
           Price: ${room.price_per_night}
         </p>
