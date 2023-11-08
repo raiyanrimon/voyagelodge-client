@@ -3,7 +3,7 @@ const UserTestimonial = () => {
     <div className="carousel w-full my-7">
       <div id="slide1" className="carousel-item relative w-full">
         <div className="max-w-3xl mx-auto space-y-4">
-          <p className="text-xl">
+          <p className="md:text-xl">
             &apos;&apos;I recently booked a stay with VoyageLodge, and it was a
             fantastic experience! From the moment I entered the beautifully
             designed lobby to the time I checked out, I was impressed. The hotel
@@ -32,7 +32,7 @@ const UserTestimonial = () => {
       </div>
       <div id="slide2" className="carousel-item relative w-full">
         <div className="max-w-3xl mx-auto space-y-4">
-          <p className="text-xl">
+          <p className="md:text-xl">
             &apos;&apos;I had a wonderful experience at VoyageLodge. The hotel
             ambiance is amazing, and the staff is incredibly friendly and
             accommodating. I can not wait to visit again!&apos;&apos;
@@ -59,7 +59,7 @@ const UserTestimonial = () => {
       </div>
       <div id="slide3" className="carousel-item relative w-full">
         <div className="max-w-3xl mx-auto space-y-4">
-          <p className="text-xl">
+          <p className="md:text-xl">
             &apos;&apos;My stay at VoyageLodge was nothing short of perfect. The
             room was comfortable, and the service was outstanding. I highly
             recommend this hotel to anyone looking for a great travel
