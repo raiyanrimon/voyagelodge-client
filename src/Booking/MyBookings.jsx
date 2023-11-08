@@ -13,10 +13,10 @@ const MyBookings = () => {
   const url = `/bookings?email=${user?.email}`;
 
   useEffect(() => {
-    if (token) {
+    if (token && user?.email) {
       axiosSecure.get(url).then((res) => setBookings(res.data));
     }
-  }, [url, axiosSecure, token]);
+  }, [url, axiosSecure, token, user?.email]);
   const handleDeleteBooking = (id, bookingDate) => {
     Swal.fire({
       title: "Are you sure?",
