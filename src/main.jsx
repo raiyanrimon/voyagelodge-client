@@ -33,13 +33,13 @@ const router = createBrowserRouter([
       {
         path: "/rooms",
         element: <Rooms></Rooms>,
-        loader: () => fetch("http://localhost:5000/rooms"),
+        loader: () => fetch("https://voyagelodge.vercel.app/rooms"),
       },
       {
         path: "/rooms/:id",
         element: <RoomDetails></RoomDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/rooms/${params.id}`),
+          fetch(`https://voyagelodge.vercel.app/rooms/${params.id}`),
       },
       {
         path: "login",
@@ -65,7 +65,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/rooms/${params.id}`),
+          fetch(`https://voyagelodge.vercel.app/rooms/${params.id}`),
       },
       {
         path: "/bookings",
@@ -83,7 +83,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/bookings/${params.id}`),
+          fetch(`https://voyagelodge.vercel.app/bookings/${params.id}`),
       },
       {
         path: "/contact",

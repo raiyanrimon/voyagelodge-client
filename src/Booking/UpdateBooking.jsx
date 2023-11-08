@@ -22,7 +22,7 @@ const UpdateBooking = () => {
       img1,
       offer_price,
     };
-    fetch(`http://localhost:5000/bookings/${_id}`, {
+    fetch(`https://voyagelodge.vercel.app/bookings/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

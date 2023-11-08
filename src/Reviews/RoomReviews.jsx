@@ -6,8 +6,7 @@ const RoomReviews = ({ roomName }) => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    // Fetch reviews for the specific room from your backend API
-    fetch(`http://localhost:5000/reviews/${roomName}`)
+    fetch(`https://voyagelodge.vercel.app/reviews/${roomName}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

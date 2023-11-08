@@ -12,13 +12,14 @@ import {
 } from "firebase/auth";
 import axios from "axios";
 
-export const AuthContext = createContext();
+export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [token, setToken] = useState(null);
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -45,15 +46,16 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
       if (currentUser) {
         axios
-          .post("http://localhost:5000/jwt", loggedUser, {
+          .post("https://voyagelodge.vercel.app/jwt", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {
             console.log("response", res.data);
+            setToken(res.data.success);
           });
       } else {
         axios
-          .post("http://localhost:5000/logout", loggedUser, {
+          .post("https://voyagelodge.vercel.app/logout", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {
@@ -65,7 +67,15 @@ const AuthProvider = ({ children }) => {
       unSubscribe();
     };
   }, [user?.email]);
-  const authInfo = { user, loading, createUser, logOut, logIn, googleSignIn };
+  const authInfo = {
+    user,
+    loading,
+    createUser,
+    logOut,
+    logIn,
+    googleSignIn,
+    token,
+  };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
