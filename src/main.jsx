@@ -72,7 +72,6 @@ const router = createBrowserRouter([
             <MyBookings></MyBookings>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/bookings"),
       },
       {
         path: "/booking-update/:id",

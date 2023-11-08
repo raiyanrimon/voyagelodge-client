@@ -17,12 +17,45 @@ const RoomDetails = () => {
   const { user } = useContext(AuthContext);
   const bookingRoom = room.name;
   const [bookingData, setBookingData] = useState([]);
+  // const accessToken =
+  //   "3e6a1bff8aef75d6d150b7fa43832a81c0fbf9bc137c2eacba631a020a3bb73fe5e9ba7074de6464f898363adb6c98bf94205bd8a7f2e0a66f218e2e0dce3ea5";
+
+  // const apiUrl = "http://localhost:5000/bookings";
+
+  // fetch(apiUrl, {
+  //   method: "GET",
+  //   headers: {
+  //     Authorization: `Bearer ${accessToken}`,
+  //   },
+  // })
+  //   .then((response) => {
+  //     if (!response.ok) {
+  //       throw new Error("Network response was not ok");
+  //     }
+  //     return response.json();
+  //   })
+  //   .then((data) => {
+  //     // Handle the response data here
+  //     console.log(data);
+  //     setBookingData(data);
+  //   })
+  //   .catch((error) => {
+  //     // Handle errors, e.g., authentication failure, network issues
+  //     console.error("Error:", error);
+  //   });
+
   useEffect(() => {
     fetch("http://localhost:5000/bookings")
       .then((res) => res.json())
-      .then((data) => setBookingData(data));
+      .then((data) => {
+        setBookingData(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, []);
-  const isRoomBooked = bookingData.find(
+  console.log(bookingData);
+  const isRoomBooked = bookingData.some(
     (booking) => booking.name === bookingRoom && booking.email === user?.email
   );
 

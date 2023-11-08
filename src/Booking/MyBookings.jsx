@@ -1,16 +1,20 @@
-import { useContext, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import PageTitle from "../Helmet/PageTitle";
+import axios from "axios";
 
 const MyBookings = () => {
-  const bookings = useLoaderData();
-
   const { user } = useContext(AuthContext);
-  const booking = bookings.filter((booking) => booking.email === user?.email);
-  const [book, setBook] = useState(booking);
+  const [bookings, setBookings] = useState([]);
+  const url = `http://localhost:5000/bookings?email=${user?.email}`;
 
+  useEffect(() => {
+    axios.get(url, { withCredentials: true }).then((res) => {
+      setBookings(res.data);
+    });
+  }, [url]);
   const handleDeleteBooking = (id, bookingDate) => {
     Swal.fire({
       title: "Are you sure?",
@@ -42,8 +46,10 @@ const MyBookings = () => {
                   icon: "success",
                 });
 
-                const remaining = book.filter((booking) => booking._id !== id);
-                setBook(remaining);
+                const remaining = bookings.filter(
+                  (booking) => booking._id !== id
+                );
+                setBookings(remaining);
               }
             });
         } else {
@@ -62,7 +68,7 @@ const MyBookings = () => {
       <PageTitle title="My Bookings | VoyageLodge" />
       <h2 className="text-center text-3xl font-bold">My Bookings</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {book.map((bk) => (
+        {bookings.map((bk) => (
           <div key={bk._id}>
             <div
               key={bk._id}
