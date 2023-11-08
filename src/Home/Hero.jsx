@@ -4,7 +4,7 @@ import heroImage from "../assets/hero.jpg";
 import { Parallax } from "react-parallax";
 const Hero = () => {
   return (
-    <div>
+    <div className="my-5">
       <Parallax
         className="relative h-screen "
         bgImage={hotelImage}
