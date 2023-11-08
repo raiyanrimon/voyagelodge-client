@@ -17,6 +17,8 @@ import Booking from "./Booking/Booking";
 import MyBookings from "./Booking/MyBookings";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import UpdateBooking from "./Booking/UpdateBooking";
+import ContactUs from "./Company/ContactUs";
+import PrivacyPolicy from "./Company/PrivacyPolicy";
 
 const router = createBrowserRouter([
   {
@@ -82,6 +84,14 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/bookings/${params.id}`),
+      },
+      {
+        path: "/contact",
+        element: <ContactUs>s</ContactUs>,
+      },
+      {
+        path: "/privacy",
+        element: <PrivacyPolicy></PrivacyPolicy>,
       },
     ],
   },

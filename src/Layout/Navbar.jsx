@@ -28,13 +28,7 @@ const Navbar = () => {
         <NavLink to="/contact">Contact Us</NavLink>
       </li>
       <li>
-        <NavLink to="/gallery">Gallery</NavLink>
-      </li>
-      <li>
-        <NavLink to="/testimonials">Testimonials</NavLink>
-      </li>
-      <li>
-        <NavLink to="/career">Career</NavLink>
+        <NavLink to="/privacy">Privacy & Policy</NavLink>
       </li>
       <li>
         <NavLink to="/faq">FAQ</NavLink>
