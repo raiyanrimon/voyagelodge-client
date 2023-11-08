@@ -36,11 +36,10 @@ const Hero = () => {
       >
         <div className="items-center flex justify-center absolute h-screen w-full">
           <p className=" font-semibold text-center uppercase text-white p-4 text-xs lg:text-xl">
-            Welcome to VoyageLodge, where your journey begins. Whether you are
-            seeking a relaxing escape or an exciting adventure, our exceptional
-            hotels offer the perfect stay. Explore our curated destinations,
-            book with ease, and embrace unforgettable experiences. Your dream
-            vacation starts here.
+            where your journey begins, Whether you are seeking a relaxing escape
+            or an exciting adventure, our exceptional hotels offer the perfect
+            stay. Explore our curated destinations, book with ease, and embrace
+            unforgettable experiences. Your dream vacation starts here.
           </p>
         </div>
       </Parallax>
