@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { updateProfile } from "firebase/auth";
 import register from "../assets/register.png";
+import PageTitle from "../Helmet/PageTitle";
 
 const Register = () => {
   const { createUser, googleSignIn } = useContext(AuthContext);
@@ -42,25 +43,13 @@ const Register = () => {
             displayName: name,
             photoURL: photo,
           });
-          //   const users = { email };
-          //   fetch(
-          //     "https://unique-shop-server-75yzugdl5-golam-raiyans-projects.vercel.app/user",
-          //     {
-          //       method: "POST",
-          //       headers: {
-          //         "content-type": "application/json",
-          //       },
-          //       body: JSON.stringify(users),
-          //     }
-          //   )
-          //     .then((res) => res.json())
-          //     .then((data) => console.log(data))
         })
         .catch((error) => console.error(error));
     }
   };
   return (
     <div className="hero min-h-screen ">
+      <PageTitle title="Register | VoyageLodge" />
       <img src={register} alt="" />
       <div className="hero-content flex-col ">
         <div className="text-center my-5 ">

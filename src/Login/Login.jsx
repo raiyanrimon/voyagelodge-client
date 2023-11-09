@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../Provider/AuthProvider";
 import login from "../assets/login.png";
+import PageTitle from "../Helmet/PageTitle";
 
 const Login = () => {
   const { logIn, googleSignIn } = useContext(AuthContext);
@@ -36,6 +37,7 @@ const Login = () => {
   };
   return (
     <div className="hero min-h-screen">
+      <PageTitle title="Login | VoyageLodge" />
       <img src={login} alt="" />
       <div className="hero-content flex-col ">
         <div className="text-center ">
