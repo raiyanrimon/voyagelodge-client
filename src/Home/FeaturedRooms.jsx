@@ -7,7 +7,6 @@ const FeaturedRooms = () => {
     fetch("https://voyagelodge.vercel.app/rooms")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setRooms(data);
       });
   }, []);

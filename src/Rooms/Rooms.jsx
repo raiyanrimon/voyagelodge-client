@@ -11,9 +11,9 @@ const Rooms = () => {
   const sortProductsByPrice = (e) => {
     const sortedRooms = [...initialRooms];
     if (e.target.value === "lowest") {
-      sortedRooms.sort((a, b) => a.price_per_night - b.price_per_night);
+      sortedRooms.sort((a, b) => a.offer_price - b.offer_price);
     } else if (e.target.value === "highest") {
-      sortedRooms.sort((a, b) => b.price_per_night - a.price_per_night);
+      sortedRooms.sort((a, b) => b.offer_price - a.offer_price);
     }
     setRoomData(sortedRooms);
   };
@@ -21,8 +21,8 @@ const Rooms = () => {
   const filterByPrice = () => {
     const filteredRooms = initialRooms.filter(
       (room) =>
-        room.price_per_night >= priceFilter.min &&
-        room.price_per_night <= priceFilter.max
+        room.offer_price >= priceFilter.min &&
+        room.offer_price <= priceFilter.max
     );
     setRoomData(filteredRooms);
   };
