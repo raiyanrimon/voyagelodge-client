@@ -1,27 +1,31 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "react-toastify";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import PageTitle from "../Helmet/PageTitle";
 
 const Booking = () => {
   const room = useLoaderData();
-  const { img1, name, offer_price } = room;
+  const { img1, name, offer_price, description } = room;
   const { user } = useContext(AuthContext);
+  const [selectedDate, setSelectedDate] = useState(null);
+
   const handleBook = (e) => {
     e.preventDefault();
     const form = e.target;
     const customer = form.customer.value;
-    const date = form.date.value;
     const email = form.email.value;
     const booking = {
       name,
       email,
       customer,
-      date,
+      date: selectedDate,
       img1,
       offer_price,
     };
+
     fetch("https://voyagelodge.vercel.app/bookings", {
       method: "POST",
       headers: {
@@ -34,8 +38,8 @@ const Booking = () => {
         console.log(data);
         toast.success("Booking Completed Successfully");
       });
-    console.log(booking);
   };
+
   return (
     <div>
       <PageTitle title="Booking | VoyageLodge" />
@@ -58,9 +62,10 @@ const Booking = () => {
             <label className="label">
               <span className="label-text">Date</span>
             </label>
-            <input
-              type="date"
-              name="date"
+            <DatePicker
+              selected={selectedDate}
+              onChange={(date) => setSelectedDate(date)}
+              dateFormat="dd/MM/yyyy"
               className="input input-bordered"
               required
             />
@@ -73,7 +78,7 @@ const Booking = () => {
               type="email"
               name="email"
               defaultValue={user?.email}
-              placeholder="email"
+              placeholder="Email"
               className="input input-bordered"
               required
             />
@@ -87,7 +92,12 @@ const Booking = () => {
               defaultValue={`$${offer_price}`}
               className="input input-bordered"
               required
+              readOnly
             />
+          </div>
+          <div className="md:col-span-2">
+            <h2 className="text-xl font-bold">{name}</h2>
+            <p className="font-medium">{description}</p>
           </div>
         </div>
         <div className="form-control mt-6">

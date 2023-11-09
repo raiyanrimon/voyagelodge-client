@@ -1,27 +1,32 @@
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import PageTitle from "../Helmet/PageTitle";
-import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "react-toastify";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import PageTitle from "../Helmet/PageTitle";
 
 const UpdateBooking = () => {
   const room = useLoaderData();
   const { _id, name, img1, offer_price, date } = room;
   const { user } = useContext(AuthContext);
+  const [selectedDate, setSelectedDate] = useState(new Date(date));
+
   const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
     const customer = form.customer.value;
-    const date = form.date.value;
     const email = form.email.value;
+    const updatedDate = selectedDate.toISOString().split("T")[0];
     const booking = {
       name,
       email,
       customer,
-      date,
+      date: updatedDate,
       img1,
       offer_price,
     };
+
     fetch(`https://voyagelodge.vercel.app/bookings/${_id}`, {
       method: "PUT",
       headers: {
@@ -37,6 +42,7 @@ const UpdateBooking = () => {
         }
       });
   };
+
   return (
     <div>
       <PageTitle title="Update Booking | VoyageLodge" />
@@ -60,10 +66,10 @@ const UpdateBooking = () => {
             <label className="label">
               <span className="label-text">Date</span>
             </label>
-            <input
-              type="date"
-              name="date"
-              defaultValue={date}
+            <DatePicker
+              selected={selectedDate}
+              onChange={(date) => setSelectedDate(date)}
+              dateFormat="dd/MM/yyyy"
               className="input input-bordered"
               required
             />
@@ -77,7 +83,7 @@ const UpdateBooking = () => {
               name="email"
               defaultValue={user?.email}
               readOnly
-              placeholder="email"
+              placeholder="Email"
               className="input input-bordered"
               required
             />
