@@ -1,6 +1,6 @@
-import hotelImage from "../assets/hotel.jpg";
-import mountainImage from "../assets/mountain.jpg";
-import heroImage from "../assets/hero.jpg";
+import hotelImage from "../assets/hotel.webp";
+import mountainImage from "../assets/mountain.webp";
+import heroImage from "../assets/hero.webp";
 import { Parallax } from "react-parallax";
 const Hero = () => {
   return (

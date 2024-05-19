@@ -4,71 +4,89 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 space-y-4">
-      <h1 className="text-3xl font-semibold mb-4 text-center">Contact Us</h1>
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-        <div className="bg-white p-4 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold mb-2">Our Address</h2>
-          <p>123 Voyage Street</p>
-          <p>Travel City</p>
-          <p>Bangladesh</p>
+    <div className="container mx-auto p-4 space-y-8">
+      <h1 className="text-4xl font-bold text-center text-gray-800">
+        Contact Us
+      </h1>
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+          <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+            Our Address
+          </h2>
+          <p className="text-gray-700">123 Voyage Street</p>
+          <p className="text-gray-700">Travel City</p>
+          <p className="text-gray-700">Bangladesh</p>
         </div>
-        <div className="bg-white p-4 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold mb-2">Phone Numbers</h2>
-          <p>Main: +123-456-7890</p>
-          <p>Support: +880-654-3210</p>
+        <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+          <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+            Phone Numbers
+          </h2>
+          <p className="text-gray-700">Main: +123-456-7890</p>
+          <p className="text-gray-700">Support: +880-654-3210</p>
         </div>
-        <div className="bg-white p-4 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold mb-2">Email Addresses</h2>
-          <p>General: info@voyagelodge.com</p>
-          <p>Support: support@voyagelodge.com</p>
+        <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+          <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+            Email Addresses
+          </h2>
+          <p className="text-gray-700">General: info@voyagelodge.com</p>
+          <p className="text-gray-700">Support: support@voyagelodge.com</p>
         </div>
       </div>
-      <div className="mt-8 bg-white p-4 rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold mb-4">Send us a message</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="name" className="block text-sm font-medium">
+      <div className="bg-white p-6 rounded-lg shadow-lg mt-8">
+        <h2 className="text-3xl font-semibold text-center text-blue-600 mb-6">
+          Send us a message
+        </h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="flex flex-col">
+            <label htmlFor="name" className="text-sm font-medium text-gray-700">
               Name
             </label>
             <input
               type="text"
               id="name"
               name="name"
-              className="w-full p-2 border rounded-md"
+              className="mt-1 p-2 border rounded-md focus:ring focus:ring-blue-200 focus:border-blue-500"
               required
             />
           </div>
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium">
+          <div className="flex flex-col">
+            <label
+              htmlFor="email"
+              className="text-sm font-medium text-gray-700"
+            >
               Email
             </label>
             <input
               type="email"
               id="email"
               name="email"
-              className="w-full p-2 border rounded-md"
+              className="mt-1 p-2 border rounded-md focus:ring focus:ring-blue-200 focus:border-blue-500"
               required
             />
           </div>
-          <div className="mb-4">
-            <label htmlFor="message" className="block text-sm font-medium">
+          <div className="flex flex-col">
+            <label
+              htmlFor="message"
+              className="text-sm font-medium text-gray-700"
+            >
               Message
             </label>
             <textarea
               id="message"
               name="message"
               rows="4"
-              className="w-full p-2 border rounded-md"
+              className="mt-1 p-2 border rounded-md focus:ring focus:ring-blue-200 focus:border-blue-500"
               required
             ></textarea>
           </div>
-          <button
-            type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-md"
-          >
-            Send
-          </button>
+          <div className="text-center">
+            <button
+              type="submit"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition duration-200"
+            >
+              Send
+            </button>
+          </div>
         </form>
       </div>
     </div>

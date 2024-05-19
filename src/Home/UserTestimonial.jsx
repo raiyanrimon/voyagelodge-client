@@ -1,6 +1,6 @@
 const UserTestimonial = () => {
   return (
-    <div className="carousel w-full my-7">
+    <div className="carousel w-full ">
       <div id="slide1" className="carousel-item relative w-full">
         <div className="max-w-3xl mx-auto space-y-4">
           <p className="md:text-xl">

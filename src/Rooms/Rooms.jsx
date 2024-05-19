@@ -40,54 +40,60 @@ const Rooms = () => {
   };
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 p-4">
       <PageTitle title="Rooms | VoyageLodge" />
 
-      <div className="space-y-2">
-        <div>
-          <label className="font-semibold">Filter by Price</label>
-          <select
-            className="ml-3"
-            onChange={(e) => sortProductsByPrice(e)}
-            name="filter"
-            id=""
-          >
-            <option value="#"></option>
-            <option value="lowest">Low to High</option>
-            <option value="highest">High to Low</option>
-          </select>
-        </div>
-        <div>
-          <label className="font-semibold">Filter by Price Range</label>
-          <div className="flex items-center space-x-2">
-            <input
-              type="number"
-              placeholder="Min"
-              value={priceFilter.min}
-              onChange={(e) => handlePriceChange(e, "min")}
-            />
-            <span>-</span>
-            <input
-              type="number"
-              placeholder="Max"
-              value={priceFilter.max}
-              onChange={(e) => handlePriceChange(e, "max")}
-            />
-            <button className="btn btn-primary" onClick={handleApplyFilter}>
-              Apply
-            </button>
+      <div className="space-y-4">
+        <div className="flex flex-col md:flex-row items-center justify-between">
+          <div className="flex items-center">
+            <label className="font-semibold mr-2">Sort by Price:</label>
+            <select
+              className="border p-2 rounded"
+              onChange={sortProductsByPrice}
+              name="filter"
+            >
+              <option value="#">Select</option>
+              <option value="lowest">Low to High</option>
+              <option value="highest">High to Low</option>
+            </select>
+          </div>
+          <div className="flex items-center mt-4 md:mt-0">
+            <label className="font-semibold mr-2">Filter by Price Range:</label>
+            <div className="flex items-center space-x-2">
+              <input
+                type="number"
+                className="border p-2 rounded"
+                placeholder="Min"
+                value={priceFilter.min}
+                onChange={(e) => handlePriceChange(e, "min")}
+              />
+              <span>-</span>
+              <input
+                type="number"
+                className="border p-2 rounded"
+                placeholder="Max"
+                value={priceFilter.max}
+                onChange={(e) => handlePriceChange(e, "max")}
+              />
+              <button
+                className="btn btn-primary ml-2"
+                onClick={handleApplyFilter}
+              >
+                Apply
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
       <div>
-        <h1 className="text-center font-bold text-4xl text-gray-500">
+        <h1 className="text-center font-bold text-4xl text-gray-700 my-6">
           Our Rooms
         </h1>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {roomData.map((room) => (
-          <RoomCard key={room._id} room={room}></RoomCard>
+          <RoomCard key={room._id} room={room} />
         ))}
       </div>
     </div>
